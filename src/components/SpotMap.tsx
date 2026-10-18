@@ -18,18 +18,23 @@ export function SpotMap({ selectedId, onSelect }: SpotMapProps) {
   const mapRef = useRef<MapView>(null);
 
   useEffect(() => {
-    const spot = PHOTO_SPOTS.find((item) => item.id === selectedId);
-    if (!spot || !mapRef.current) return;
+    if (!mapRef.current) return;
 
-    mapRef.current.animateToRegion(
-      {
-        latitude: spot.latitude,
-        longitude: spot.longitude,
-        latitudeDelta: 0.08,
-        longitudeDelta: 0.08,
-      },
-      450,
-    );
+    const spot = PHOTO_SPOTS.find((item) => item.id === selectedId);
+    if (spot) {
+      mapRef.current.animateToRegion(
+        {
+          latitude: spot.latitude,
+          longitude: spot.longitude,
+          latitudeDelta: 0.08,
+          longitudeDelta: 0.08,
+        },
+        450,
+      );
+      return;
+    }
+
+    mapRef.current.animateToRegion(SEOUL_GYEONGGI_REGION, 450);
   }, [selectedId]);
 
   return (

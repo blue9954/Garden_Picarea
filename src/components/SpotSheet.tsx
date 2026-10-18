@@ -1,10 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Animated, {
-  FadeInDown,
-  FadeInUp,
-  LinearTransition,
-} from 'react-native-reanimated';
+import Animated, { FadeInDown, FadeInUp, LinearTransition } from 'react-native-reanimated';
 
 import { PHOTO_SPOTS, type PhotoSpot } from '@/data/spots';
 import { colors } from '@/theme/colors';
@@ -19,14 +15,11 @@ export function SpotSheet({ selectedId, onSelect }: SpotSheetProps) {
   const selected = PHOTO_SPOTS.find((spot) => spot.id === selectedId) ?? null;
 
   return (
-    <View
-      style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, 16) }]}
-      pointerEvents="box-none"
-    >
-      <Animated.View entering={FadeInUp.duration(500)} style={styles.handleRow}>
+    <View style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, 16) }]}>
+      <View style={styles.handleRow}>
         <View style={styles.handle} />
         <Text style={styles.title}>추천 출사지 3곳</Text>
-      </Animated.View>
+      </View>
 
       <ScrollView
         horizontal
@@ -43,7 +36,11 @@ export function SpotSheet({ selectedId, onSelect }: SpotSheetProps) {
             >
               <Pressable
                 onPress={() => onSelect(spot)}
-                style={[styles.card, active && styles.cardActive]}
+                style={({ pressed }) => [
+                  styles.card,
+                  active && styles.cardActive,
+                  pressed && styles.cardPressed,
+                ]}
                 accessibilityRole="button"
                 accessibilityState={{ selected: active }}
                 accessibilityLabel={`${spot.name}, ${spot.region}`}
@@ -70,7 +67,9 @@ export function SpotSheet({ selectedId, onSelect }: SpotSheetProps) {
           <Text style={styles.detailTime}>{selected.bestTime}</Text>
           <Text style={styles.detailTips}>{selected.tips}</Text>
         </Animated.View>
-      ) : null}
+      ) : (
+        <Text style={styles.hint}>지도 마커나 카드를 눌러 출사지를 선택하세요.</Text>
+      )}
     </View>
   );
 }
@@ -81,7 +80,8 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    zIndex: 10,
+    zIndex: 1000,
+    elevation: 1000,
     backgroundColor: colors.paper,
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
@@ -124,6 +124,9 @@ const styles = StyleSheet.create({
   cardActive: {
     borderColor: colors.sage,
     backgroundColor: colors.white,
+  },
+  cardPressed: {
+    opacity: 0.88,
   },
   dot: {
     width: 10,
@@ -177,5 +180,13 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 19,
     color: colors.mist,
+  },
+  hint: {
+    marginHorizontal: 20,
+    marginTop: 2,
+    marginBottom: 4,
+    fontFamily: 'DMSans_400Regular',
+    fontSize: 13,
+    color: colors.inkMuted,
   },
 });
