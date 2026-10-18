@@ -28,7 +28,14 @@ export function SpotSheet({ selectedId, onSelect }: SpotSheetProps) {
             <button
               key={spot.id}
               type="button"
-              onClick={() => onSelect(spot)}
+              onClick={(event) => {
+                onSelect(spot);
+                event.currentTarget.scrollIntoView({
+                  behavior: 'smooth',
+                  inline: 'center',
+                  block: 'nearest',
+                });
+              }}
               aria-pressed={active}
               style={{
                 ...cardDomStyle,
