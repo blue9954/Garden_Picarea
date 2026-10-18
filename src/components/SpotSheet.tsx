@@ -1,7 +1,8 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, { FadeInDown, FadeInUp, LinearTransition } from 'react-native-reanimated';
 
+import { SpotCard } from '@/components/SpotCard';
 import { PHOTO_SPOTS, type PhotoSpot } from '@/data/spots';
 import { colors } from '@/theme/colors';
 
@@ -26,35 +27,19 @@ export function SpotSheet({ selectedId, onSelect }: SpotSheetProps) {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.list}
       >
-        {PHOTO_SPOTS.map((spot, index) => {
-          const active = spot.id === selectedId;
-          return (
-            <Animated.View
-              key={spot.id}
-              entering={FadeInDown.delay(120 + index * 80).duration(420)}
-              layout={LinearTransition}
-            >
-              <Pressable
-                onPress={() => onSelect(spot)}
-                style={({ pressed }) => [
-                  styles.card,
-                  active && styles.cardActive,
-                  pressed && styles.cardPressed,
-                ]}
-                accessibilityRole="button"
-                accessibilityState={{ selected: active }}
-                accessibilityLabel={`${spot.name}, ${spot.region}`}
-              >
-                <View style={[styles.dot, { backgroundColor: spot.accent }]} />
-                <Text style={styles.cardRegion}>{spot.region}</Text>
-                <Text style={styles.cardName}>{spot.name}</Text>
-                <Text style={styles.cardSummary} numberOfLines={2}>
-                  {spot.summary}
-                </Text>
-              </Pressable>
-            </Animated.View>
-          );
-        })}
+        {PHOTO_SPOTS.map((spot, index) => (
+          <Animated.View
+            key={spot.id}
+            entering={FadeInDown.delay(120 + index * 80).duration(420)}
+            layout={LinearTransition}
+          >
+            <SpotCard
+              spot={spot}
+              active={spot.id === selectedId}
+              onSelect={onSelect}
+            />
+          </Animated.View>
+        ))}
       </ScrollView>
 
       {selected ? (
@@ -112,47 +97,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     gap: 12,
     paddingBottom: 8,
-  },
-  card: {
-    width: 196,
-    backgroundColor: colors.mist,
-    borderRadius: 18,
-    padding: 14,
-    borderWidth: 1.5,
-    borderColor: 'transparent',
-  },
-  cardActive: {
-    borderColor: colors.sage,
-    backgroundColor: colors.white,
-  },
-  cardPressed: {
-    opacity: 0.88,
-  },
-  dot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    marginBottom: 8,
-  },
-  cardRegion: {
-    fontFamily: 'DMSans_500Medium',
-    fontSize: 11,
-    letterSpacing: 0.6,
-    textTransform: 'uppercase',
-    color: colors.inkMuted,
-  },
-  cardName: {
-    marginTop: 4,
-    fontFamily: 'Fraunces_600SemiBold',
-    fontSize: 17,
-    color: colors.forest,
-  },
-  cardSummary: {
-    marginTop: 6,
-    fontFamily: 'DMSans_400Regular',
-    fontSize: 13,
-    lineHeight: 18,
-    color: colors.inkMuted,
   },
   detail: {
     marginHorizontal: 16,
