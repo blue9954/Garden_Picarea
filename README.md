@@ -2,6 +2,9 @@
 
 서울·경기도권 추천 출사지를 지도에서 살펴보는 아이폰용 앱입니다.
 
+**현재 버전: `1.0.0`** (iOS buildNumber `1` · Android versionCode `1`)  
+변경 이력은 [CHANGELOG.md](./CHANGELOG.md)를 참고하세요.
+
 ## 추천 출사지 3곳
 
 | 장소 | 권역 | 포인트 |
@@ -21,3 +24,15 @@ npx expo start
 - 웹 미리보기: `npx expo start --web`
 
 지도는 iOS에서 Apple Maps(`react-native-maps`), 웹에서는 OpenStreetMap(Leaflet)을 사용합니다.
+
+## 빌드
+
+```bash
+# 웹 프로덕션 번들 → dist/
+npm run build:web
+
+# iOS / Android (EAS 로그인 필요: npx eas-cli login)
+npm run build:ios:preview      # 시뮬레이터용 프리뷰
+npm run build:ios              # 스토어용 프로덕션
+npm run build:android:preview  # APK 프리뷰
+```

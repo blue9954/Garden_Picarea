@@ -16,6 +16,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.garden.picarea",
+      "buildNumber": "1",
       "infoPlist": {
         "CFBundleDisplayName": "Garden Picarea"
       }
@@ -28,6 +29,7 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "package": "com.garden.picarea",
+      "versionCode": 1,
       "predictiveBackGestureEnabled": false
     },
     "web": {
