@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Garden Picarea",
+    "slug": "garden-picarea",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "gardenpicarea",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#E8EEE9"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.garden.picarea",
+      "buildNumber": "1",
+      "infoPlist": {
+        "CFBundleDisplayName": "Garden Picarea"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E8EEE9",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.garden.picarea",
+      "versionCode": 1,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-splash-screen"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
