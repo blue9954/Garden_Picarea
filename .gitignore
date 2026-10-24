@@ -1,0 +1,14 @@
+# Xcode
+*.xcodeproj/
+xcuserdata/
+DerivedData/
+*.xcworkspace/xcuserdata/
+# SwiftPM
+.build/
+.swiftpm/
+Package.resolved
+# Secrets — 절대 커밋 금지
+App/Config/Secrets.xcconfig
+.env
+# macOS
+.DS_Store

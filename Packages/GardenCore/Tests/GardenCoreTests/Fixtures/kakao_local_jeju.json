@@ -1,0 +1,79 @@
+{
+ "제주 보롬왓": {
+  "documents": [
+   {
+    "id": "1001",
+    "place_name": "보롬왓 주차장",
+    "category_name": "교통,수송 > 주차장",
+    "category_group_code": "PK6",
+    "address_name": "제주특별자치도 서귀포시 표선면 성읍리",
+    "road_address_name": "",
+    "x": "126.7290",
+    "y": "33.4250",
+    "place_url": "http://place.map.kakao.com/1001"
+   },
+   {
+    "id": "1002",
+    "place_name": "보롬왓",
+    "category_name": "여행 > 관광,명소 > 테마공원",
+    "category_group_code": "AT4",
+    "address_name": "제주특별자치도 서귀포시 표선면 성읍리 3229-4",
+    "road_address_name": "제주특별자치도 서귀포시 표선면 번영로 2350-104",
+    "x": "126.7303",
+    "y": "33.4245",
+    "place_url": "http://place.map.kakao.com/1002"
+   }
+  ]
+ },
+ "제주 휴애리": {
+  "documents": [
+   {
+    "id": "2001",
+    "place_name": "휴애리자연생활공원",
+    "category_name": "여행 > 관광,명소 > 테마공원",
+    "category_group_code": "AT4",
+    "address_name": "제주특별자치도 서귀포시 남원읍 신례리 2081",
+    "road_address_name": "제주특별자치도 서귀포시 남원읍 신례동로 256",
+    "x": "126.6343",
+    "y": "33.3089",
+    "place_url": "http://place.map.kakao.com/2001"
+   }
+  ]
+ },
+ "제주 혼인지": {
+  "documents": [
+   {
+    "id": "3001",
+    "place_name": "혼인지",
+    "category_name": "여행 > 관광,명소 > 문화유적",
+    "category_group_code": "AT4",
+    "address_name": "제주특별자치도 서귀포시 성산읍 온평리 1693",
+    "road_address_name": "제주특별자치도 서귀포시 성산읍 혼인지로 39-22",
+    "x": "126.9178",
+    "y": "33.4537",
+    "place_url": "http://place.map.kakao.com/3001"
+   }
+  ]
+ },
+ "제주 카멜리아힐": {
+  "documents": [
+   {
+    "id": "4001",
+    "place_name": "카멜리아힐",
+    "category_name": "여행 > 관광,명소 > 수목원,식물원",
+    "category_group_code": "AT4",
+    "address_name": "제주특별자치도 서귀포시 안덕면 상창리 271",
+    "road_address_name": "제주특별자치도 서귀포시 안덕면 병악로 166",
+    "x": "126.3687",
+    "y": "33.2897",
+    "place_url": "http://place.map.kakao.com/4001"
+   }
+  ]
+ },
+ "제주 가짜오름": {
+  "documents": []
+ },
+ "가짜오름": {
+  "documents": []
+ }
+}
